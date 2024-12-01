@@ -1,4 +1,5 @@
 pub mod day01;
+pub mod day02;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
