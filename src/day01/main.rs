@@ -29,8 +29,7 @@ pub fn part1() -> i32 {
     l_vec
         .iter()
         .zip(r_vec.iter())
-        .map(|(&l, &r)| l.abs_diff(r) as i32)
-        .sum::<i32>()
+        .fold(0, |acc, (&l, &r)| acc + l.abs_diff(r) as i32)
 }
 
 pub fn part2() -> i32 {
