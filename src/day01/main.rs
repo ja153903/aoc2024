@@ -36,9 +36,9 @@ pub fn part2() -> i32 {
     let (l_vec, r_vec) = parse_input();
 
     let mut r_map: HashMap<i32, i32> = HashMap::new();
-    for &item in r_vec.iter() {
-        r_map.entry(item).and_modify(|v| *v += 1).or_insert(1);
-    }
+    r_vec.iter().for_each(|item| {
+        r_map.entry(*item).and_modify(|v| *v += 1).or_insert(1);
+    });
 
     l_vec
         .iter()
