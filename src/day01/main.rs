@@ -37,18 +37,12 @@ pub fn part2() -> i32 {
     let input = read_input();
     let (l_vec, r_vec) = parse_input(input);
     
-    let mut similarity_score = 0;
-    
     let mut r_map: HashMap<i32, i32> = HashMap::new();
     for &item in r_vec.iter() {
         r_map.entry(item).and_modify(|v| *v += 1).or_insert(1);
     }
     
-    for item in l_vec.iter() {
-        similarity_score += *item * r_map.get(item).unwrap_or(&0);
-    }
-    
-    similarity_score
+    l_vec.iter().fold(0, |acc, item| acc + item * r_map.get(item).unwrap_or(&0))
 }
 
 #[cfg(test)]
