@@ -8,14 +8,14 @@ pub fn parse_input() -> (Vec<i32>, Vec<i32>) {
 
     let re = Regex::new(r"(?<l>\d+)\s+(?<r>\d+)").unwrap();
 
-    for line in input.lines() {
+    input.lines().for_each(|line| {
         let Some(captures) = re.captures(line) else {
             panic!("Could not parse input")
         };
 
         l_vec.push(captures["l"].parse::<i32>().unwrap());
         r_vec.push(captures["r"].parse::<i32>().unwrap());
-    }
+    });
 
     l_vec.sort();
     r_vec.sort();
