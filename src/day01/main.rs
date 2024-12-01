@@ -1,11 +1,11 @@
 use regex::Regex;
 use std::collections::HashMap;
 
-pub fn read_input() -> String {
-    String::from(include_str!("./data.in"))
+pub fn read_input() -> &'static str {
+    include_str!("./data.in")
 }
 
-pub fn parse_input(input: String) -> (Vec<i32>, Vec<i32>) {
+pub fn parse_input(input: &'static str) -> (Vec<i32>, Vec<i32>) {
     let mut l_vec = Vec::new();
     let mut r_vec = Vec::new();
     
